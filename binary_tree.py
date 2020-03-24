@@ -1,6 +1,10 @@
 '''
 given data = [0, 5, 7, 4, 3, 2, 20, 12, 6]
-create binary tree(from left to right, level by level) and show the level order traversal of tree
+
+- create binary tree(from left to right, level by level)
+- show the level order traversal of tree
+- find the maximum number from left and right (max left + max right)
+
 For example:
 
 data [0, 5, 7, 4, 3, 2, 20, 12, 6]
@@ -14,13 +18,16 @@ tree structure:
    / \
   12  6
 
-level order traversal as:
+level order traversal:
 [
   [0],
   [5,7],
   [4, 3, 2, 20],
   [12, 6]
 ]
+
+max number left and right (max left + max right)
+sum([0, 5, 4, 12]) + sum([7, 20]) = 48
 '''
 
 
@@ -140,4 +147,5 @@ data = [0, 5, 7, 4, 3, 2, 20, 12, 6]
 tree = Tree()
 tree.add(data)
 print(tree.root.left.left.left)  # Tree (12)
+print(tree.root.get_sum_max())  # 48
 print(tree.show_level_tree())  # [[0], [5, 7], [4, 3, 2, 20], [12, 6]]
