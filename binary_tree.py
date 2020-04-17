@@ -91,45 +91,31 @@ class Tree(object):
         find node, scan from top of the root (using ltr method)
         '''
         nodes = [self.root]
-        branches = []
-        counter = 0
         while nodes:
-            node = nodes[counter]
+            node = nodes.pop(0)
             if not node.is_complete:
                 return node
             else:
-                branches.extend([node.left, node.right])
-
-            if (len(nodes) - 1) == counter:
-                nodes, branches, counter = branches, [], 0
-                continue
-
-            counter += 1
+                nodes.extend([node.left, node.right])
 
     def show_level_tree(self):
         tree_level = []
-        current_level = []
         nodes = [self.root]
-        branch = []
-        counter = 0
         while nodes:
-            node = nodes[counter]
-            current_level.append(node.value)
-            node_branchs = []
-            if node.left:
-                node_branchs.append(node.left)
+            next_nodes = []
+            level_data = []
 
-            if node.right:
-                node_branchs.append(node.right)
+            for node in nodes:
+                level_data.append(node.value)
 
-            branch.extend(node_branchs)
+                if node.left:
+                    next_nodes.append(node.left)
 
-            if (len(nodes) - 1) == counter:
-                tree_level.append(current_level)
-                nodes, branch, counter, current_level = branch, [], 0, []
-                continue
+                if node.right:
+                    next_nodes.append(node.right)
 
-            counter += 1
+            tree_level.append(level_data)
+            nodes = next_nodes
 
         return tree_level
 
