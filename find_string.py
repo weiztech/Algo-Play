@@ -1,4 +1,5 @@
 '''
+Scanning Technique
 
 2 input:
 

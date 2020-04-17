@@ -1,7 +1,6 @@
 # Tim's Sort Algorithm
 
 k = [9, 2, 5, 6, 8, 10]
-
 # Version 1 (loop idx from end of the list)
 for i, v in enumerate(k):
     if (i == 0):
